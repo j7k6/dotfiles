@@ -1,0 +1,6 @@
+*.swp
+*.tmp
+*.un~
+backup
+.DS_Store
+.netrwhist
