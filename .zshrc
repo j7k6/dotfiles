@@ -30,7 +30,7 @@ _ssh_status() {
 }
 
 [[ -f ~/.gpg-agent-info ]] && source ~/.gpg-agent-info
-[[ ! -S "${GPG_AGENT_INFO%%:*}" ]] && eval $(gpg-agent --daemon --quiet --use-standard-socket --enable-ssh-support --write-env-file ~/.gpg-agent-info)
+[[ ! -S "${GPG_AGENT_INFO%%:*}" ]] && eval $(gpg-agent --daemon --quiet --enable-ssh-support ~/.gpg-agent-info > /dev/null 2>&1)
 
 [[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
 alias grep='grep --color=auto'
