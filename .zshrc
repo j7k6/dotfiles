@@ -49,7 +49,7 @@ export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:$(npm bin &):$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:$(npm bin 2>/dev/null &):$PATH"
 
 [[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
 alias grep='grep --color=auto'
