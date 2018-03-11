@@ -28,14 +28,11 @@ _git_status() {
   fi
 }
 
-[[ -f ~/.gpg-agent-info ]] && source ~/.gpg-agent-info
-[[ ! -S "${GPG_AGENT_INFO%%:*}" ]] && eval $(gpg-agent --daemon --quiet --enable-ssh-support ~/.gpg-agent-info > /dev/null 2>&1)
-
-[[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+gpg-connect-agent --quiet /bye > /dev/null 2> /dev/null
+eval $(gpg-agent --daemon --quiet --enable-ssh-support > /dev/null 2>&1)
 
 export GPG_AGENT_INFO
-export SSH_AUTH_SOCK
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 export SSH_AGENT_PID
 export GPG_TTY=$(tty)
 
@@ -53,3 +50,6 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:$(npm bin &):$PATH"
+
+[[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
+alias grep='grep --color=auto'
