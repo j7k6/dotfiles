@@ -1,3 +1,6 @@
+bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[3~" delete-char
 bindkey "^[[H" beginning-of-line
@@ -25,10 +28,6 @@ _git_status() {
   fi
 }
 
-_ssh_status() {
-  [[ ! -z "${SSH_CONNECTION}" ]] && echo "%F{red}›%f" || echo "›"
-}
-
 [[ -f ~/.gpg-agent-info ]] && source ~/.gpg-agent-info
 [[ ! -S "${GPG_AGENT_INFO%%:*}" ]] && eval $(gpg-agent --daemon --quiet --enable-ssh-support ~/.gpg-agent-info > /dev/null 2>&1)
 
@@ -40,15 +39,17 @@ export SSH_AUTH_SOCK
 export SSH_AGENT_PID
 export GPG_TTY=$(tty)
 
-export PROMPT='%B%F{white}%~%f%b $(_git_status)$(_ssh_status) '
+export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 export CLICOLOR_FORCE=1
+export KEYTIMEOUT=1
+
 
 export TERM="$([[ $TMUX ]] && echo 'screen-256color' || echo 'xterm-256color')"
 export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:$(npm bin):$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:$(npm bin &):$PATH"
