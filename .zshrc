@@ -26,7 +26,7 @@ _git_status() {
 }
 
 _ssh_status() {
-  [[ ! -z "${SSH_CONNECTION}" ]] &&echo "%F{red}⚠%f " || echo " ❯"
+  [[ ! -z "${SSH_CONNECTION}" ]] &&echo "%F{red}⚠%f " || echo "❯"
 }
 
 [[ -f ~/.gpg-agent-info ]] && source ~/.gpg-agent-info
