@@ -21,7 +21,7 @@ setopt histignorespace
 
 _git_status() {
   if [[ -d .git || $(git rev-parse --git-dir > /dev/null 2>&1) ]]; then
-    git rev-parse --abbrev-ref HEAD > /dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '%F{green}✔%f' || echo '%F{red}✗%f')%f "
+    git rev-parse --abbrev-ref HEAD > /dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '%F{green}✔%f ' || echo '%F{red}✗%f ')%f"
   fi
 }
 
