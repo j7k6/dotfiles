@@ -21,20 +21,26 @@ setopt histignorespace
 
 _git_status() {
   if [[ -d .git || $(git rev-parse --git-dir > /dev/null 2>&1) ]]; then
-    git rev-parse --abbrev-ref HEAD > /dev/null 2>&1
-    [[ $? == 0 ]] && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '%F{green}✔%f' || echo '%F{red}✗%f')%f "
+    git rev-parse --abbrev-ref HEAD > /dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '%F{green}✔%f' || echo '%F{red}✗%f')%f "
   fi
+}
+
+_ssh_status() {
+  [[ ! -z "${SSH_CONNECTION}" ]] &&echo "%F{red}⚠%f " || echo "❯"
 }
 
 [[ -f ~/.gpg-agent-info ]] && source ~/.gpg-agent-info
 [[ ! -S "${GPG_AGENT_INFO%%:*}" ]] && eval $(gpg-agent --daemon --quiet --use-standard-socket --enable-ssh-support --write-env-file ~/.gpg-agent-info)
+
+[[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 export GPG_AGENT_INFO
 export SSH_AUTH_SOCK
 export SSH_AGENT_PID
 export GPG_TTY=$(tty)
 
-export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
+export PROMPT='%B%F{white}%~%f%b $(_git_status)$(_ssh_status) '
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
