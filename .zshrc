@@ -23,17 +23,15 @@ setopt share_history
 setopt histignorespace
 
 _git_status() {
-  if [[ -d .git || $(git rev-parse --git-dir > /dev/null 2>&1) ]]; then
-    git rev-parse --abbrev-ref HEAD > /dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '✔' || echo '✗')%f "
+  if [[ -d .git || $(git rev-parse --git-dir >/dev/null 2>&1) ]]; then
+    git rev-parse --abbrev-ref HEAD >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '✔' || echo '✗')%f "
   fi
 }
 
-gpg-connect-agent --quiet /bye > /dev/null 2> /dev/null
-eval $(gpg-agent --daemon --quiet --enable-ssh-support > /dev/null 2>&1)
+gpg-connect-agent --quiet /bye >/dev/null 2>/dev/null
+eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
 
-export GPG_AGENT_INFO
-export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
-export SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
@@ -42,7 +40,6 @@ export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 export CLICOLOR_FORCE=1
 export KEYTIMEOUT=1
-
 
 export TERM="$([[ $TMUX ]] && echo 'screen-256color' || echo 'xterm-256color')"
 export EDITOR="vim"
