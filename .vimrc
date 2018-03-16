@@ -25,7 +25,7 @@ let g:onedark_termcolors=256                     " enable 256 colors support
 
 " Ruler
 set laststatus=0                                 " disable statusline
-set ruler rulerformat=%40(%=%<%F%m\ \
+set ruler rulerformat=%50(%=%<%F%m\ \
                       \›\ %{getfsize(@%)}B\ \
                       \›\ %l/%L:%v%)
 
@@ -59,6 +59,7 @@ nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
 nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
 nnoremap <silent> <leader>t :%s/\s\+$//e<CR>|    " trim whitespace
 nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
+imap <tab> <C-N>|                                " autocomplete  
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
