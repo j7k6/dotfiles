@@ -9,6 +9,7 @@ set nowrap                                       " disable wrapping
 set number                                       " show line numbers
 set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
+set showcmd                                      " show command keys
 
 " UI
 filetype plugin indent on                        " enable filetype detection
