@@ -29,9 +29,7 @@ let g:onedark_termcolors=256                     " enable 256 colors support
 
 " Ruler
 set laststatus=0                                 " disable statusline
-set ruler rulerformat=%50(%=%<%F%m\ \
-                      \›\ %{getfsize(@%)}B\ \
-                      \›\ %l/%L:%v%)
+set ruler rulerformat=%50(%=%<%F%m\ ›\ %{getfsize(@%)}B\ \›\ %l/%L:%v%)
 
 " Tabs & Indentation
 set autoindent expandtab                         " autoindentation & tabbing
@@ -62,7 +60,8 @@ nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
 nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
 nnoremap <silent> <leader>t :%s/\s\+$//e|        " trim whitespace
 nnoremap <leader>o :edit<space><Tab>|            " open buffer
-nnoremap <silent> <leader><space> :Lexplore<CR>| " toggle netrw
+nnoremap <leader>x :bd<CR>|                      " close buffer
+nnoremap <silent> <leader><space> :Explore<CR>|  " open netrw
 nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
 nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
 nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
@@ -73,6 +72,4 @@ cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
 
 " Netrw Settings
 let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_browse_split=4
-let g:netrw_winsize=25
+let g:netrw_browse_split=0
