@@ -9,8 +9,10 @@ set nowrap                                       " disable wrapping
 set number                                       " show line numbers
 set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
+set wildcharm=<Tab>                              " wildmenu character
 set showcmd                                      " show command keys
-set splitbelow splitright                        " splits
+set splitbelow splitright                        " better split behaviour
+set autochdir                                    " switch to files local directory
 
 " UI
 filetype plugin indent on                        " enable filetype detection
@@ -50,31 +52,29 @@ set ttyfast                                      " enable fast terminal connecti
 " Key Mappings
 let mapleader=','                                " leader key
 nnoremap <leader>, :let @/=''<CR>:noh<CR>|       " clear search
-nnoremap <leader># :g/\v^(#\|$)/d_<CR>|          " delete commented/blank lines
+nnoremap <silent> <leader># :g/\v^(#\|$)/d_<CR>| " delete commented/blank lines
 nnoremap <leader>b :ls<CR>:buffer<space>|        " show/select buffer
 nnoremap <leader>d :w !diff % -<CR>|             " show diff
 nnoremap <silent> <leader>i gg=G``<CR>|          " fix indentation
 nnoremap <leader>l :set list! list?<CR>|         " toggle list (special chars)
-nnoremap <leader>n :set invnumber number?<CR>|   " toggle line numbers
 nnoremap <leader>p :set invpaste paste?<CR>|     " toggle paste mode
 nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
 nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
-nnoremap <leader>o :edit<space>|                 " open buffer
+nnoremap <silent> <leader>t :%s/\s\+$//e|        " trim whitespace
+nnoremap <leader>o :edit<space><Tab>|            " open buffer
 nnoremap <silent> <leader><space> :Lexplore<CR>| " toggle netrw
 nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
-nnoremap <S-Right> :bn<CR>|                      " next buffer
-nnoremap <S-Left> :bp<CR>|                       " previous buffer
+nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
+nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
+nnoremap <silent> <S-Left> :bp<CR>|              " previous buffer
 imap <tab> <C-N>|                                " autocomplete
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
 cnoreabbrev q! qa!|                              " close all buffers
-cnoreabbrev <silent> t :%s/\s\+$//e|             " trim whitespace
 
 " Netrw Settings
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
-let g:netrw_alt=1
 let g:netrw_winsize=25
-
