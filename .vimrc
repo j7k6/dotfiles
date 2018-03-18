@@ -67,7 +67,6 @@ nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
 nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
 nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
 nnoremap <silent> <S-Left> :bp<CR>|              " previous buffer
-imap <tab> <C-N>|                                " autocomplete
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
