@@ -71,7 +71,6 @@ imap <tab> <C-N>|                                " autocomplete
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
-cnoreabbrev q! qa!|                              " close all buffers
 
 " Netrw Settings
 let g:netrw_banner=0
