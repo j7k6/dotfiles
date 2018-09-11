@@ -55,6 +55,7 @@ nnoremap <leader>b :ls<CR>:buffer<space>|        " show/select buffer
 nnoremap <leader>d :w !diff % -<CR>|             " show diff
 nnoremap <silent> <leader>i gg=G``<CR>|          " fix indentation
 nnoremap <leader>l :set list! list?<CR>|         " toggle list (special chars)
+nnoremap <leader>m :marks<CR>|                   " list marks
 nnoremap <leader>p :set invpaste paste?<CR>|     " toggle paste mode
 nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
 nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
