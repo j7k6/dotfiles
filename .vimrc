@@ -74,3 +74,9 @@ cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
 " Netrw Settings
 let g:netrw_banner=0
 let g:netrw_browse_split=0
+
+" Autocomplete Settings
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python set omnifunc=pythoncomplete#Complete
