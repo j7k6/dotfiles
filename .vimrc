@@ -5,7 +5,6 @@ set clipboard=unnamed,unnamedplus                " enable clipboard
 set encoding=utf8                                " enable utf8 support
 set hidden                                       " hide buffers, don't close
 set mouse=a                                      " enable mouse support
-set nowrap                                       " disable wrapping
 set number                                       " show line numbers
 set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
@@ -52,7 +51,6 @@ let mapleader=','                                " leader key
 nnoremap <leader>, :let @/=''<CR>:noh<CR>|       " clear search
 nnoremap <silent> <leader># :g/\v^(#\|$)/d_<CR>| " delete commented/blank lines
 nnoremap <leader>b :ls<CR>:buffer<space>|        " show/select buffer
-nnoremap <leader>d :w !diff % -<CR>|             " show diff
 nnoremap <silent> <leader>i gg=G``<CR>|          " fix indentation
 nnoremap <leader>l :set list! list?<CR>|         " toggle list (special chars)
 nnoremap <leader>m :marks<CR>|                   " list marks
@@ -67,6 +65,7 @@ nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
 nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
 nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
 nnoremap <silent> <S-Left> :bp<CR>|              " previous buffer
+map <leader>d "_d|                               " delete selected text
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
