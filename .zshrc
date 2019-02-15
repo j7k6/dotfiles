@@ -28,11 +28,10 @@ _git_status() {
   fi
 }
 
-eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+export SSH_AUTH_SOCKET="$HOME/.gnupg/S.gpg-agent.ssh"
 
-export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
+export PROMPT="%B%F{white}%~%f%b $(_git_status)› "
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
