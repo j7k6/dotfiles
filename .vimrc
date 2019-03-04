@@ -66,6 +66,7 @@ nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
 nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
 nnoremap <silent> <S-Left> :bp<CR>|              " previous buffer
 map <leader>d "_d|                               " delete selected text
+autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 2)<CR>
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
