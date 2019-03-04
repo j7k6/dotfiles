@@ -22,22 +22,21 @@ setopt inc_append_history
 setopt share_history
 setopt histignorespace
 
+eval $(ssh-agent -s) >/dev/null 2>&1
+eval $(gpg-agent -q) >/dev/null 2>&1
+
 _git_status() {
   if [[ -d .git || $(git rev-parse --git-dir >/dev/null 2>&1) ]]; then
     git rev-parse --abbrev-ref HEAD >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '✔' || echo '✗')%f "
   fi
 }
 
-eval $(ssh-agent -s) >/dev/null 2>&1
-eval $(gpg-agent -q) >/dev/null 2>&1
-
 export PROMPT="%B%F{white}%~%f%b $(_git_status)› "
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE=~/.zsh_history
+export HISTFILE="~/.zsh_history"
 export CLICOLOR_FORCE=1
 export KEYTIMEOUT=1
-
 export TERM="$([[ $TMUX ]] && echo 'screen-256color' || echo 'xterm-256color')"
 export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
