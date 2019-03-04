@@ -1,6 +1,6 @@
 bindkey -v
-bindkey '^P' up-history
-bindkey '^N' down-history
+bindkey "^P" up-history
+bindkey "^N" down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[3~" delete-char
 bindkey "^[[H" beginning-of-line
@@ -12,8 +12,8 @@ bindkey "^[[4~" end-of-line
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
 
-zstyle ':completion:*' completer _complete _correct _approximate
-zstyle ':completion:*' special-dirs true
+zstyle ":completion:*" completer _complete _correct _approximate
+zstyle ":completion:*" special-dirs true
 
 autoload -Uz compinit && compinit
 
@@ -29,9 +29,9 @@ _git_status() {
 }
 
 eval $(ssh-agent -s) >/dev/null 2>&1
-eval $(gpg-agent -s) >/dev/null 2>&1
+eval $(gpg-agent -q) >/dev/null 2>&1
 
-export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
+export PROMPT="%B%F{white}%~%f%b $(_git_status)› "
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
@@ -45,5 +45,5 @@ export LANG="en_US.UTF-8"
 
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 
-[[ "$(uname)" == "Darwin" ]] && alias ls='ls -G' || alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+[[ "$(uname)" = "Darwin" ]] && alias ls="ls -G" || alias ls="ls --color=auto"
+alias grep="grep --color=auto"
