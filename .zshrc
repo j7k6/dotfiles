@@ -34,7 +34,7 @@ _git_status() {
 export PROMPT="%B%F{white}%~%f%b $(_git_status)› "
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE="~/.zsh_history"
+export HISTFILE="$HOME/.zsh_history"
 export CLICOLOR_FORCE=1
 export KEYTIMEOUT=1
 export TERM="$([[ $TMUX ]] && echo 'screen-256color' || echo 'xterm-256color')"
