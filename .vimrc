@@ -17,7 +17,8 @@ set autochdir                                    " switch to files local directo
 filetype plugin indent on                        " enable filetype detection
 set listchars=eol:¶,trail:•,tab:▸\               " whitespace characters
 set scrolloff=999                                " center cursor position vertically
-set showbreak=¬\                                 " Wrapping character
+set nowrap                                       " disable wrapping
+set showbreak=¬\                                 " wrapping character
 set showmatch                                    " show matching brackets
 syntax on                                        " enable syntax highlightning
 
