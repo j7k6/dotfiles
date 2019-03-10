@@ -28,8 +28,9 @@ _git_status() {
   fi
 }
 
-gpgconf --kill gpg-agent >/dev/null 2>&1
-gpg-agent --daemon --enable-ssh-support >/dev/null 2>&1 || export SSH_AUTH_SOCK=0
+gpg-connect-agent --quiet /bye >/dev/null 2>/dev/null
+eval $(gpg-agent --daemon --enable-ssh-support >/dev/null 2>&1)
+export SSH_AUTH_SOCK=0
 
 export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
