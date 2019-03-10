@@ -29,8 +29,8 @@ _git_status() {
 }
 
 gpg-connect-agent --quiet /bye >/dev/null 2>/dev/null
-eval $(gpg-agent --daemon --enable-ssh-support >/dev/null 2>&1)
-export SSH_AUTH_SOCK=0
+eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
+test "$(uname)" = "Linux" && export SSH_AUTH_SOCK=0
 
 export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
@@ -46,5 +46,5 @@ export LANG="en_US.UTF-8"
 
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 
-[[ "$(uname)" = "Darwin" ]] && alias ls="ls -G" || alias ls="ls --color=auto"
+test "$(uname)" = "Darwin" && alias ls="ls -G" || alias ls="ls --color=auto"
 alias grep="grep --color=auto"
