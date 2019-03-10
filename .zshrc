@@ -28,7 +28,7 @@ _git_status() {
   fi
 }
 
-gpg-connect-agent --quiet /bye >/dev/null 2>/dev/null
+gpg-connect-agent --quiet /bye >/dev/null 2>&1
 eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
 test "$(uname)" = "Linux" && export SSH_AUTH_SOCK=0
 
