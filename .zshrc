@@ -30,7 +30,7 @@ _git_status() {
 
 gpg-connect-agent --quiet /bye >/dev/null 2>&1
 eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
-test "$(uname)" = "Linux" && export SSH_AUTH_SOCK=0
+export SSH_AUTH_SOCK=0
 
 export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
