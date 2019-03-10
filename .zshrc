@@ -29,7 +29,7 @@ _git_status() {
 }
 
 gpgconf --kill gpg-agent >/dev/null 2>&1
-gpg-agent --daemon --enable-ssh-support >/dev/null 2>&1
+gpg-agent --daemon --enable-ssh-support >/dev/null 2>&1 || ssh-agent -s >/dev/null 2>&1
 
 export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
