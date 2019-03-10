@@ -23,9 +23,7 @@ setopt share_history
 setopt histignorespace
 
 _git_status() {
-  if [[ -d .git || $(git rev-parse --git-dir >/dev/null 2>&1) ]]; then
-    git rev-parse --abbrev-ref HEAD >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD)] $(git diff --no-ext-diff --quiet --exit-code && echo '✔' || echo '✗')%f "
-  fi
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] $(git diff --no-ext-diff --quiet --exit-code 2>/dev/null && echo '✔' || echo '✗')%f "
 }
 
 gpg-connect-agent --quiet /bye >/dev/null 2>&1
