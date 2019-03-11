@@ -29,6 +29,7 @@ _git_status() {
 gpg-connect-agent --quiet /bye >/dev/null 2>&1
 gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1
 
+export SSH_AUTH_SOCK=0
 export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
 export HISTSIZE=10000
