@@ -27,7 +27,6 @@ _git_status() {
 }
 
 gpg-connect-agent --quiet /bye >/dev/null 2>&1
-gpg-connect-agent --quiet reloadagent /bye >/dev/null 2>&1
 eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
 
 export SSH_AUTH_SOCK=0
