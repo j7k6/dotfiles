@@ -46,3 +46,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:./node_modules/.bin:$
 
 test "$(uname)" = "Darwin" && alias ls="ls -G" || alias ls="ls --color=auto"
 alias grep="grep --color=auto"
+alias tmux="tmux attach -d \; new-window || tmux"
