@@ -26,8 +26,11 @@ _git_status() {
   git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] $(git diff --no-ext-diff --quiet --exit-code 2>/dev/null && echo '✔' || echo '✗')%f "
 }
 
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
+gpg-connect-agent --quiet /bye >/dev/null 2>&1
+eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
 
+export SSH_AUTH_SOCK=0
+export GPG_TTY="$(tty)"
 export PROMPT='%B%F{white}%~%f%b $(_git_status)› '
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -38,11 +41,8 @@ export TERM="$(test $TMUX && echo 'screen-256color' || echo 'xterm-256color')"
 export EDITOR="vim"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
-export SSH_AUTH_SOCK=0
-export GPG_TTY="$(tty)"
 
-gpg-connect-agent --quiet /bye >/dev/null 2>&1
-eval $(gpg-agent --daemon --quiet --enable-ssh-support >/dev/null 2>&1)
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 
 test "$(uname)" = "Darwin" && alias ls="ls -G" || alias ls="ls --color=auto"
 alias grep="grep --color=auto"
