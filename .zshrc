@@ -11,6 +11,8 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[7~" beginning-of-line
 bindkey "^[[8~" end-of-line
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 zstyle ":completion:*" completer _complete _correct _approximate
 zstyle ":completion:*" special-dirs true
