@@ -21,6 +21,7 @@ setopt prompt_subst
 setopt inc_append_history
 setopt share_history
 setopt histignorespace
+setopt correct
 
 _git_status() {
   git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo "%F{white}[git:$(git rev-parse --abbrev-ref HEAD 2>/dev/null)] $(git diff --no-ext-diff --quiet --exit-code 2>/dev/null && echo '✔' || echo '✗')%f "
