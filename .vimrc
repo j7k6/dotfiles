@@ -1,38 +1,29 @@
 " Basic
-set backspace=indent,eol,start                          " backspace behaviour
-set clipboard=unnamed,unnamedplus                       " enable clipboard
-set encoding=utf8                                       " enable utf8 support
-set lazyredraw nocursorline ttyfast                     " performance tuning
-set mouse=a                                             " enable mouse support
-set number                                              " show line numbers
-set showcmd                                             " show command keys
-set term=xterm-256color                                 " terminal type
-set wildmenu wildmode=longest:full,full wildcharm=<Tab> " wildmenu character
-
-" UI
-filetype plugin indent on                               " enable filetype detection
-set listchars=eol:¶,trail:•,tab:▸\  showbreak=¬\        " whitespace characters
-set nowrap                                              " disable wrapping
-set scrolloff=999                                       " center cursor position vertically
-set showmatch                                           " show matching brackets
-syntax on                                               " enable syntax highlightning
+filetype plugin indent on
+set autoindent expandtab shiftwidth=2 softtabstop=2 tabstop=2
+set backspace=indent,eol,start
+set clipboard=unnamed,unnamedplus
+set encoding=utf8
+set hlsearch ignorecase incsearch smartcase
+set laststatus=0 ruler rulerformat=%50(%=%<%F%m\ ›\ %{getfsize(@%)}B\ \›\ %l/%L:%v%)
+set lazyredraw nocursorline ttyfast
+set listchars=eol:¶,trail:•,tab:▸\  showbreak=¬\
+set mouse=a
+set nobackup noswapfile nowritebackup undofile undodir=~/.vim/undo undolevels=99999
+set nowrap
+set number
+set scrolloff=999
+set showcmd
+set showmatch
+set term=xterm-256color
+set wildmenu wildmode=longest:full,full wildcharm=<Tab>
+syntax on
 
 " Colors
 colorscheme onedark                                     " set colorscheme
 hi Normal guibg=NONE ctermbg=NONE|                      " transparency fix
 let g:onedark_termcolors=256                            " enable 256 colors support
 
-" Ruler
-set laststatus=0 ruler rulerformat=%50(%=%<%F%m\ ›\ %{getfsize(@%)}B\ \›\ %l/%L:%v%)
-
-" Tabs & Indentation
-set autoindent expandtab shiftwidth=2 softtabstop=2 tabstop=2
-
-" Search
-set hlsearch ignorecase incsearch smartcase
-
-" Undo & Backup
-set nobackup noswapfile nowritebackup undofile undodir=~/.vim/undo undolevels=99999
 
 " Key Mappings
 let mapleader=','                                " leader key
