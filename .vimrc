@@ -1,5 +1,4 @@
 " Basic
-set autoread                                     " reload on external file changes
 set backspace=indent,eol,start                   " backspace behaviour
 set clipboard=unnamed,unnamedplus                " enable clipboard
 set encoding=utf8                                " enable utf8 support
