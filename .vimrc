@@ -49,9 +49,6 @@ nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
 nnoremap <silent><leader>d "_d|                  " delete selected text
 nnoremap <silent><leader>i gg=G``<CR>|           " fix indentation
 
-" Custom Commands
-cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
-
 " Autocomplete Settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
