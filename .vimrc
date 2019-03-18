@@ -2,7 +2,6 @@
 set backspace=indent,eol,start                          " backspace behaviour
 set clipboard=unnamed,unnamedplus                       " enable clipboard
 set encoding=utf8                                       " enable utf8 support
-set hidden                                              " hide buffers, don't close
 set lazyredraw nocursorline ttyfast                     " performance tuning
 set mouse=a                                             " enable mouse support
 set number                                              " show line numbers
