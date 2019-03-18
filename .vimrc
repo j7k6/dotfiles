@@ -1,48 +1,39 @@
 " Basic
-set backspace=indent,eol,start                   " backspace behaviour
-set clipboard=unnamed,unnamedplus                " enable clipboard
-set encoding=utf8                                " enable utf8 support
-set hidden                                       " hide buffers, don't close
-set mouse=a                                      " enable mouse support
-set number                                       " show line numbers
-set term=xterm-256color                          " terminal type
-set wildmenu wildmode=longest:full,full          " wildmode settings
-set wildcharm=<Tab>                              " wildmenu character
-set showcmd                                      " show command keys
+set backspace=indent,eol,start                          " backspace behaviour
+set clipboard=unnamed,unnamedplus                       " enable clipboard
+set encoding=utf8                                       " enable utf8 support
+set hidden                                              " hide buffers, don't close
+set lazyredraw nocursorline ttyfast                     " performance tuning
+set mouse=a                                             " enable mouse support
+set number                                              " show line numbers
+set showcmd                                             " show command keys
+set term=xterm-256color                                 " terminal type
+set wildmenu wildmode=longest:full,full wildcharm=<Tab> " wildmenu character
 
 " UI
-filetype plugin indent on                        " enable filetype detection
-set listchars=eol:¶,trail:•,tab:▸\               " whitespace characters
-set scrolloff=999                                " center cursor position vertically
-set nowrap                                       " disable wrapping
-set showbreak=¬\                                 " wrapping character
-set showmatch                                    " show matching brackets
-syntax on                                        " enable syntax highlightning
+filetype plugin indent on                               " enable filetype detection
+set listchars=eol:¶,trail:•,tab:▸\  showbreak=¬\        " whitespace characters
+set nowrap                                              " disable wrapping
+set scrolloff=999                                       " center cursor position vertically
+set showmatch                                           " show matching brackets
+syntax on                                               " enable syntax highlightning
 
 " Colors
-colorscheme onedark                              " set colorscheme
-hi Normal guibg=NONE ctermbg=NONE|               " transparency fix
-let g:onedark_termcolors=256                     " enable 256 colors support
+colorscheme onedark                                     " set colorscheme
+hi Normal guibg=NONE ctermbg=NONE|                      " transparency fix
+let g:onedark_termcolors=256                            " enable 256 colors support
 
 " Ruler
-set laststatus=0                                 " disable statusline
-set ruler rulerformat=%50(%=%<%F%m\ ›\ %{getfsize(@%)}B\ \›\ %l/%L:%v%)
+set laststatus=0 ruler rulerformat=%50(%=%<%F%m\ ›\ %{getfsize(@%)}B\ \›\ %l/%L:%v%)
 
 " Tabs & Indentation
-set autoindent expandtab                         " autoindentation & tabbing
-set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
+set autoindent expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 " Search
-set hlsearch ignorecase incsearch smartcase      " search options
+set hlsearch ignorecase incsearch smartcase
 
 " Undo & Backup
-set nobackup noswapfile nowritebackup            " disable backup/swap files
-set undofile undodir=~/.vim/undo undolevels=9999 " undo options
-
-" Performance Tuning
-set lazyredraw                                   " enable lazyredraw
-set nocursorline                                 " disable cursorline
-set ttyfast                                      " enable fast terminal connection
+set nobackup noswapfile nowritebackup undofile undodir=~/.vim/undo undolevels=99999
 
 " Key Mappings
 let mapleader=','                                " leader key
