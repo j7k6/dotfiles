@@ -10,8 +10,6 @@ set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
 set wildcharm=<Tab>                              " wildmenu character
 set showcmd                                      " show command keys
-set splitbelow splitright                        " better split behaviour
-set autochdir                                    " switch to files local directory
 
 " UI
 filetype plugin indent on                        " enable filetype detection
@@ -50,31 +48,19 @@ set ttyfast                                      " enable fast terminal connecti
 " Key Mappings
 let mapleader=','                                " leader key
 nnoremap <leader>, :let @/=''<CR>:noh<CR>|       " clear search
-nnoremap <silent> <leader># :g/\v^(#\|$)/d_<CR>| " delete commented/blank lines
-nnoremap <leader>b :ls<CR>:buffer<space>|        " show/select buffer
-nnoremap <silent> <leader>i gg=G``<CR>|          " fix indentation
+nnoremap <leader># :g/\v^(#\|$)/d_<CR>|          " delete commented/blank lines
 nnoremap <leader>l :set list! list?<CR>|         " toggle list (special chars)
-nnoremap <leader>m :marks<CR>|                   " list marks
+nnoremap <leader>n :set number! number?<CR>|     " toggle list (special chars)
 nnoremap <leader>p :set invpaste paste?<CR>|     " toggle paste mode
 nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
 nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
-nnoremap <silent> <leader>t :%s/\s\+$//e|        " trim whitespace
-nnoremap <leader>o :edit<space><Tab>|            " open buffer
-nnoremap <leader>x :bd<CR>|                      " close buffer
-nnoremap <silent> <leader><space> :Explore<CR>|  " open netrw
+nnoremap <leader>t :%s/\s\+$//e<CR>|             " trim whitespace
 nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
-nnoremap <silent> <leader>n :enew<CR>|           " new empty buffer
-nnoremap <silent> <S-Right> :bn<CR>|             " next buffer
-nnoremap <silent> <S-Left> :bp<CR>|              " previous buffer
-map <leader>d "_d|                               " delete selected text
-autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python3' shellescape(@%, 2)<CR>
+nnoremap <silent><leader>d "_d|                  " delete selected text
+nnoremap <silent><leader>i gg=G``<CR>|           " fix indentation
 
 " Custom Commands
 cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
-
-" Netrw Settings
-let g:netrw_banner=0
-let g:netrw_browse_split=0
 
 " Autocomplete Settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
