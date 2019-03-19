@@ -19,6 +19,7 @@ zstyle ":completion:*" menu select
 zstyle ":completion:*" special-dirs true
 zstyle ":completion:*" insert-tab false
 zstyle ":completion:*:ssh:*" tag-order "!users"
+zstyle -e ":completion:*:ssh:*" hosts "reply=()"
 
 zle_highlight+=(paste:none)
 
