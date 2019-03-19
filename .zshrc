@@ -18,6 +18,7 @@ zstyle ":completion:*" completer _complete _correct _approximate
 zstyle ":completion:*" menu select
 zstyle ":completion:*" special-dirs true
 zstyle ":completion:*" insert-tab false
+zstyle ":completion:*:ssh:*" tag-order "!users"
 
 autoload -Uz compinit && compinit
 
