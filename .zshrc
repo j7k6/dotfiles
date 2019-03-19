@@ -17,6 +17,7 @@ bindkey "^[[H" beginning-of-line
 zstyle ":completion:*" completer _complete _correct _approximate
 zstyle ':completion:*' menu select
 zstyle ":completion:*" special-dirs true
+zstyle ":completion:*" insert-tab false
 
 autoload -Uz compinit && compinit
 
