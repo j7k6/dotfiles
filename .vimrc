@@ -20,24 +20,24 @@ set wildmenu wildmode=longest:full,full wildcharm=<Tab>
 syntax on
 
 " Colors
-colorscheme onedark                                     " set colorscheme
-hi Normal guibg=NONE ctermbg=NONE|                      " transparency fix
-let g:onedark_termcolors=256                            " enable 256 colors support
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
+let g:onedark_termcolors=256
 
 
 " Key Mappings
-let mapleader=','                                " leader key
-nnoremap <leader>, :let @/=''<CR>:noh<CR>|       " clear search
-nnoremap <leader># :g/\v^(#\|$)/d_<CR>|          " delete commented/blank lines
-nnoremap <leader>l :set list! list?<CR>|         " toggle list (special chars)
-nnoremap <leader>n :set number! number?<CR>|     " toggle list (special chars)
-nnoremap <leader>p :set invpaste paste?<CR>|     " toggle paste mode
-nnoremap <leader>r :retab<CR>|                   " convert tabs to spaces
-nnoremap <leader>s :source $MYVIMRC<CR>|         " reload .vimrc
-nnoremap <leader>t :%s/\s\+$//e<CR>|             " trim whitespace
-nnoremap <leader>w :set wrap! wrap?<CR>|         " toggle wrapping
-nnoremap <silent><leader>d "_d|                  " delete selected text
-nnoremap <silent><leader>i gg=G``<CR>|           " fix indentation
+let mapleader=','
+nnoremap <leader>, :let @/=''<CR>:noh<CR>
+nnoremap <leader># :g/\v^(#\|$)/d_<CR>
+nnoremap <leader>l :set list! list?<CR>
+nnoremap <leader>n :set number! number?<CR>
+nnoremap <leader>p :set invpaste paste?<CR>
+nnoremap <leader>r :retab<CR>
+nnoremap <leader>s :source $MYVIMRC<CR>
+nnoremap <leader>t :%s/\s\+$//e<CR>
+nnoremap <leader>w :set wrap! wrap?<CR>
+nnoremap <silent><leader>d "_d
+nnoremap <silent><leader>i gg=G``<CR>
 
 " Autocomplete Settings
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
