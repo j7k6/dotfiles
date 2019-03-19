@@ -20,6 +20,8 @@ zstyle ":completion:*" special-dirs true
 zstyle ":completion:*" insert-tab false
 zstyle ":completion:*:ssh:*" tag-order "!users"
 
+zle_highlight+=(paste:none)
+
 autoload -Uz compinit && compinit
 
 setopt prompt_subst extended_history inc_append_history share_history histignorespace correct magic_equal_subst extended_glob
