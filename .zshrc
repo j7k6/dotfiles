@@ -1,6 +1,4 @@
 bindkey -v
-bindkey "^N" down-history
-bindkey "^P" up-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
