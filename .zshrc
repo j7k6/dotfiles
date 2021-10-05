@@ -16,7 +16,7 @@ zstyle ":vcs_info:*" enable git
 zstyle ":vcs_info:*" check-for-changes true
 zstyle ":vcs_info:*" unstagedstr "*"
 zstyle ":vcs_info:*" stagedstr "+"
-zstyle ":vcs_info:git:*" formats "%F{white}[%s:%b%u%c]%f "
+zstyle ":vcs_info:git:*" formats "%F{white}[%s:%B%b%u%c%%b]%f "
 zstyle ":vcs_info:git:*" actionformats "%F{white}[%s:%b%u%c]%f "
 zstyle ":completion:*" completer _complete _correct _approximate
 zstyle ":completion:*" menu select
