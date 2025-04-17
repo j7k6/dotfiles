@@ -20,9 +20,8 @@ set wildmenu wildmode=longest:full,full wildcharm=<Tab>
 syntax on
 
 " Colors
-colorscheme gruvbox
-" colorscheme onedark
-" let g:onedark_termcolors=256
+colorscheme onedark
+let g:onedark_termcolors=256
 hi Normal guibg=NONE ctermbg=NONE
 hi TabLineFill ctermfg=Black ctermbg=LightGrey cterm=NONE
 hi TabLine ctermfg=Black ctermbg=LightGrey cterm=NONE
