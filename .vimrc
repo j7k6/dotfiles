@@ -20,10 +20,14 @@ set wildmenu wildmode=longest:full,full wildcharm=<Tab>
 syntax on
 
 " Colors
-colorscheme onedark
+colorscheme gruvbox
+" colorscheme onedark
+" let g:onedark_termcolors=256
 hi Normal guibg=NONE ctermbg=NONE
-let g:onedark_termcolors=256
-
+hi TabLineFill ctermfg=Black ctermbg=LightGrey cterm=NONE
+hi TabLine ctermfg=Black ctermbg=LightGrey cterm=NONE
+hi TabLineSel ctermfg=LightGrey ctermbg=Black cterm=NONE
+hi Title ctermfg=NONE ctermbg=NONE cterm=NONE
 
 " Key Mappings
 let mapleader=','
@@ -34,13 +38,34 @@ nnoremap <leader>n :set number! number?<CR>
 nnoremap <leader>p :set invpaste paste?<CR>
 nnoremap <leader>r :retab<CR>
 nnoremap <leader>s :source $MYVIMRC<CR>
-nnoremap <leader>t :%s/\s\+$//e<CR>
+nnoremap <leader>W :%s/\s\+$//e<CR>
 nnoremap <leader>w :set wrap! wrap?<CR>
+nnoremap <leader>e :Lexplore<CR>
+nnoremap <leader>t :tabedit <TAB><TAB>
+nnoremap <leader>v :vsplit <TAB><TAB>
+nnoremap <leader>h :split <TAB><TAB>
 nnoremap <silent><leader>d "_d
 nnoremap <silent><leader>i gg=G``<CR>
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
-" Autocomplete Settings
+" Autocomplete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#Complete#CompletePHP
+
+" File Browser
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
